@@ -7,7 +7,7 @@ public class TitleBoard extends Board {
 
 
     @Override
-    public void loadBoard() {
+    public void populateBoard() {
 
     }
 

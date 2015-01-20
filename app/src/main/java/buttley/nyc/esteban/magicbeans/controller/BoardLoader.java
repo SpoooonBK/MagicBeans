@@ -1,6 +1,7 @@
 package buttley.nyc.esteban.magicbeans.controller;
 
 import buttley.nyc.esteban.magicbeans.model.boards.Board;
+import buttley.nyc.esteban.magicbeans.model.boards.BoardFactory;
 import buttley.nyc.esteban.magicbeans.model.boards.BoardTypeEnum;
 
 /**
@@ -8,16 +9,19 @@ import buttley.nyc.esteban.magicbeans.model.boards.BoardTypeEnum;
  */
 public class BoardLoader {
 
-    Board lastBoard = null;
-    Board currentBoard = null;
-    Board nextBoard = null;
+    public Board lastBoard = null;
+    public Board currentBoard = null;
 
     public Board loadBoard(BoardTypeEnum boardType){
 
-        return nextBoard;
+        if(currentBoard !=null){
+            setCurrentBoardToLast();
+        }
+        currentBoard = BoardFactory.createBoard(boardType);
+        return currentBoard;
     }
 
-    private void setLastBoard(){
+    private void setCurrentBoardToLast(){
         lastBoard = currentBoard;
     }
 

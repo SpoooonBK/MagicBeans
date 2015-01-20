@@ -3,7 +3,7 @@ package buttley.nyc.esteban.magicbeans.model.boards.widgets;
 /**
  * Created by Spoooon on 1/18/2015.
  */
-public class PoopMeterWidget extends LevelWidget{
+public class PoopMeterWidget extends BoardWidget {
 
     private final int mMAX_LEVEL = 100;
     private final int mMIN_LEVEL = 0;

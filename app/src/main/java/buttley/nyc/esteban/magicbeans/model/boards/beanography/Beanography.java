@@ -14,6 +14,11 @@ public class Beanography extends Board{
 
 
     @Override
+    public void populateBoard() {
+
+    }
+
+    @Override
     public void draw() {
 
     }

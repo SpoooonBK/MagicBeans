@@ -7,7 +7,7 @@ public class BoardFactory {
 
     public static Board board;
 
-    public static Board createBoard(BoardTypeEnum){
+    public static Board createBoard(BoardTypeEnum boardType){
 
         return board ;
     }
