@@ -7,6 +7,7 @@ public abstract class Board {
 
 
 
+    public abstract void loadBoard();
     public abstract void draw();
 }
 

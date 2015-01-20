@@ -5,7 +5,7 @@ import android.graphics.drawable.AnimationDrawable;
 
 import java.util.List;
 
-import buttley.nyc.esteban.magicbeans.model.boards.gamelevels.widgets.PoopMeter;
+import buttley.nyc.esteban.magicbeans.model.boards.widgets.PoopMeterWidget;
 import buttley.nyc.esteban.magicbeans.model.sounds.Sound;
 
 /**
@@ -26,8 +26,8 @@ public class Patient extends GameCharacter {
         this.startingPoopLevel = startingPoopLevel;
     }
 
-    public void setPoopMeter(PoopMeter poopMeter){
-        poopMeter.setmStartingPoopLevel(startingPoopLevel);
+    public void setPoopMeter(PoopMeterWidget poopMeterWidget){
+        poopMeterWidget.setmStartingPoopLevel(startingPoopLevel);
     }
 
     @Override
