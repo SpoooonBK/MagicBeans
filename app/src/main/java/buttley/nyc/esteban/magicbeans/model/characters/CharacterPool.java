@@ -1,40 +1,77 @@
 package buttley.nyc.esteban.magicbeans.model.characters;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+
+import buttley.nyc.esteban.magicbeans.model.characters.Beans.Bean;
 
 /**
  * Created by Spoooon on 1/18/2015.
  */
 public class CharacterPool {
 
-    private GameCharacter character;
-    private List<GameCharacter> mGameCharacterList;
-    private Iterator<GameCharacter> gameCharacterIterator;
+
+    private Buttley buttley;
+    private List<GameCharacter> beanList;
+    private List<GameCharacter> patientList;
+
 
     public CharacterPool(){
 
-        mGameCharacterList= new ArrayList<GameCharacter>();
+        buttley = new Buttley();
+        beanList = new ArrayList<GameCharacter>();
+        patientList = new ArrayList<GameCharacter>();
+
     }
 
-    public void addCharacter(GameCharacter gameCharacter){
-        mGameCharacterList.add(gameCharacter);
+    public Buttley getButtley() {
+        return buttley;
     }
 
-    public GameCharacter getCharacter(NamesEnum characterName){
+    public List<GameCharacter> getBeanList() {
+        return beanList;
+    }
 
-        //* Searches List for character by name and returns that character
-        if(mGameCharacterList != null){
-            gameCharacterIterator = mGameCharacterList.iterator();
-            while(gameCharacterIterator.hasNext()){
-                character = gameCharacterIterator.next();
-                if(character.getmCharacterName()== characterName){
-                    return character;
-                }
+    public List<GameCharacter> getPatientList() {
+        return patientList;
+    }
+
+
+    public void addCharacterToPool(GameCharacter gameCharacter){
+        if (gameCharacter.getmCharacterType() == CharacterType.BEAN){
+            beanList.add(gameCharacter);
+        }
+        if (gameCharacter.getmCharacterType() == CharacterType.PATIENT)
+            patientList.add(gameCharacter);
+    }
+
+
+    public GameCharacter getGameCharacter(NamesEnum characterName){
+
+        if (characterName.getCharacterType() == CharacterType.BUTTLEY){
+            return getButtley();
+        }
+        if(characterName.getCharacterType()== CharacterType.BEAN){
+            return findCharacter(beanList, characterName);
+        }
+        if(characterName.getCharacterType()== CharacterType.PATIENT){
+            return findCharacter(patientList, characterName);
+        }
+        return null;
+    }
+
+    private GameCharacter findCharacter(List<GameCharacter> list, NamesEnum characterName) {
+        Iterator<GameCharacter> iterator = list.iterator();
+        while (iterator.hasNext()){
+            if(iterator.next().mCharacterName == characterName){
+                return iterator.next();
             }
         }
-        return character;
+        return null;
     }
+
 
 }

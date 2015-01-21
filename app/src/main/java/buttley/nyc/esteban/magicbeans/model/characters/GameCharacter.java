@@ -5,6 +5,7 @@ import android.graphics.drawable.AnimationDrawable;
 
 import java.util.List;
 
+import buttley.nyc.esteban.magicbeans.model.boards.beanography.BeanographyPost;
 import buttley.nyc.esteban.magicbeans.model.sounds.Sound;
 
 
@@ -13,38 +14,15 @@ import buttley.nyc.esteban.magicbeans.model.sounds.Sound;
  */
 public abstract class GameCharacter {
 
-    private Bitmap mSnapshot;
-    private List<AnimationDrawable> mAnimationsList;
-    private List<Sound> mSoundsList;
-    private boolean mUnlocked;
-    private CharacterType mCharacterType;
-    private NamesEnum mCharacterName;
+    protected Bitmap mSnapshot;
+    protected List<AnimationDrawable> mAnimationsList;
+    protected List<Sound> mSoundList;
+    protected boolean mUnlocked;
+    protected CharacterType mCharacterType;
+    protected NamesEnum mCharacterName;
+    protected BeanographyPost beanographyPost;
 
-    protected GameCharacter(){
-    }
-
-    public GameCharacter(Bitmap mSnapshot, List<AnimationDrawable> mAnimationsList, List<Sound> mSoundsList, boolean mUnlocked, CharacterType mCharacterType, NamesEnum mCharacterName) {
-        this.mSnapshot = mSnapshot;
-        this.mAnimationsList = mAnimationsList;
-        this.mSoundsList = mSoundsList;
-        this.mUnlocked = mUnlocked;
-        this.mCharacterType = mCharacterType;
-    }
-
-    public NamesEnum getmCharacterName() {
-        return mCharacterName;
-    }
-
-    public void setmCharacterName(NamesEnum mCharacterName) {
-        this.mCharacterName = mCharacterName;
-    }
-
-    public CharacterType getmCharacterType() {
-        return mCharacterType;
-    }
-
-    public void setmCharacterType(CharacterType mCharacterType) {
-        this.mCharacterType = mCharacterType;
+    public GameCharacter() {
     }
 
     public Bitmap getmSnapshot() {
@@ -63,20 +41,47 @@ public abstract class GameCharacter {
         this.mAnimationsList = mAnimationsList;
     }
 
-    public List<Sound> getmSoundsList() {
-        return mSoundsList;
+    public List<Sound> getmSoundList() {
+        return mSoundList;
     }
 
-    public void setmSoundsList(List<Sound> mSoundsList) {
-        this.mSoundsList = mSoundsList;
+    public void setmSoundList(List<Sound> mSoundList) {
+        this.mSoundList = mSoundList;
     }
-
 
     public boolean ismUnlocked() {
         return mUnlocked;
     }
 
-//TODO set up unlocked
+    public void setmUnlocked(boolean mUnlocked) {
+        this.mUnlocked = mUnlocked;
+    }
+
+    public CharacterType getmCharacterType() {
+        return mCharacterType;
+    }
+
+    public void setmCharacterType(CharacterType mCharacterType) {
+        this.mCharacterType = mCharacterType;
+    }
+
+    public NamesEnum getmCharacterName() {
+        return mCharacterName;
+    }
+
+    public void setmCharacterName(NamesEnum mCharacterName) {
+        this.mCharacterName = mCharacterName;
+    }
+
+    public BeanographyPost getBeanographyPost() {
+        return beanographyPost;
+    }
+
+    public void setBeanographyPost(BeanographyPost beanographyPost) {
+        this.beanographyPost = beanographyPost;
+    }
+
+    //TODO set up unlocked
     public void setmUnlocked() {
     }
 

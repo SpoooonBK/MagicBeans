@@ -2,7 +2,7 @@ package buttley.nyc.esteban.magicbeans.gamelogic;
 
 import java.util.List;
 
-import buttley.nyc.esteban.magicbeans.model.characters.Bean;
+import buttley.nyc.esteban.magicbeans.model.characters.Beans.Bean;
 
 /**
  * Created by Spoooon on 1/19/2015.

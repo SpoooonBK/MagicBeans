@@ -6,6 +6,7 @@ package buttley.nyc.esteban.magicbeans.model.characters;
 public class Buttley extends GameCharacter {
 
 
+
     @Override
     public void draw() {
 
