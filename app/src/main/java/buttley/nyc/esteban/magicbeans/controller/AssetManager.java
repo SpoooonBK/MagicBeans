@@ -11,4 +11,16 @@ public class AssetManager {
     private Map animations;
     private Map beans;
 
+
+
+
+    public void loadAssets(){
+
+    }
+
+
+    public void loadGraphics(){
+
+    }
+
 }

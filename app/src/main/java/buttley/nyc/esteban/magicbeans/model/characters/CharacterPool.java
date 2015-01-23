@@ -6,10 +6,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import buttley.nyc.esteban.magicbeans.model.characters.Beans.Bean;
 
 /**
- * Created by Spoooon on 1/18/2015.
+ * This class contains two ArrayLists with Bean characters and Patient Characters
  */
 public class CharacterPool {
 
@@ -40,7 +39,7 @@ public class CharacterPool {
     }
 
 
-    public void addCharacterToPool(GameCharacter gameCharacter){
+    public void addToPool(GameCharacter gameCharacter){
         if (gameCharacter.getmCharacterType() == CharacterType.BEAN){
             beanList.add(gameCharacter);
         }

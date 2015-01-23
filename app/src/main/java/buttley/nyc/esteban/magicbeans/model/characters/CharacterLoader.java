@@ -1,54 +1,33 @@
 package buttley.nyc.esteban.magicbeans.model.characters;
 
-import buttley.nyc.esteban.magicbeans.model.characters.Beans.BabyBean;
-
 /**
- * This class creates all the GameCharacters and puts them in a CharacterPool.
- * The CharacterPool is filled with all GameCharacters on instantiation.
+ * This class creates the CharacterPool and fills it with GameCharacters.
+ *
+ *
  */
 public class CharacterLoader {
-    public CharacterPool mCharacterPool;
+    public static CharacterPool sCharacterPool;
+    private static CharacterLoader sCharacterLoader;
 
-    CharacterLoader(){
+
+    public  CharacterLoader(){
+        sCharacterPool = new CharacterPool();
         loadCharacters();
     }
 
 
-    public CharacterPool getCharacterPool() {
-        return mCharacterPool;
+    private static CharacterPool getCharacterPool() {
+        if(sCharacterLoader == null){
+            sCharacterLoader = new CharacterLoader();
+        }
+        return sCharacterPool;
     }
 
     public void loadCharacters(){
-        mCharacterPool = new CharacterPool();
 
         for(NamesEnum name: NamesEnum.values()) {
-            mCharacterPool.addCharacterToPool(buildCharacter(name));
+            sCharacterPool.addToPool(CharacterFactory.buildCharacter(name));
         }
     }
-
-
-
-
-    public GameCharacter buildCharacter(NamesEnum name){
-        GameCharacter character = null;
-        switch (name){
-            case BABY:{
-                character = new BabyBean();
-                break;
-            }
-
-        }
-
-        return character;
-    }
-
-
-
-//TODO setup check if character is unlocked
-    private boolean isUnlocked(NamesEnum name){
-        boolean isUnlocked = true;
-        return isUnlocked;
-    }
-
 
 }
