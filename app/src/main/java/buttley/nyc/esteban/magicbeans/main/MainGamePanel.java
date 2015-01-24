@@ -2,6 +2,7 @@ package buttley.nyc.esteban.magicbeans.main;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -24,6 +25,11 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
         getHolder().addCallback(this);
         setFocusable(true);
         ContextHolder contextHolder = new ContextHolder(context);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return super.onTouchEvent(event);
     }
 
     @Override
