@@ -1,10 +1,5 @@
 package buttley.nyc.esteban.magicbeans.model.boards;
 
-import buttley.nyc.esteban.magicbeans.model.boards.Board;
-import buttley.nyc.esteban.magicbeans.model.boards.BoardFactory;
-import buttley.nyc.esteban.magicbeans.model.boards.BoardTypeEnum;
-import buttley.nyc.esteban.magicbeans.model.characters.CharacterLoader;
-
 /**
  * Created by Spoooon on 1/19/2015.
  */

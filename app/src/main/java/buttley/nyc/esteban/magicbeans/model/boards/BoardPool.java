@@ -1,8 +1,6 @@
 package buttley.nyc.esteban.magicbeans.model.boards;
 
-import java.util.EnumMap;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 
@@ -23,7 +21,7 @@ public class BoardPool {
     }
 
     public void addToPool(Board board){
-        boardMap.put(board.getmBoardTypeEnum(), board);
+        boardMap.put(board.getmBoardType(), board);
     }
 
     public Board getBoard(BoardTypeEnum boardType){

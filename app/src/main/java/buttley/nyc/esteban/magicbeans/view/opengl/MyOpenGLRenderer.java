@@ -1,13 +1,11 @@
 package buttley.nyc.esteban.magicbeans.view.opengl;
 
 import android.content.Context;
-import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-import java.util.logging.SocketHandler;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -15,6 +13,7 @@ import javax.microedition.khronos.opengles.GL10;
 import buttley.nyc.esteban.magicbeans.R;
 import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
 
+import static android.opengl.GLES20.GL_COLOR_BUFFER_BIT;
 import static android.opengl.GLES20.GL_FLOAT;
 import static android.opengl.GLES20.GL_LINES;
 import static android.opengl.GLES20.GL_POINTS;
@@ -29,7 +28,6 @@ import static android.opengl.GLES20.glUniform4f;
 import static android.opengl.GLES20.glUseProgram;
 import static android.opengl.GLES20.glVertexAttribPointer;
 import static android.opengl.GLES20.glViewport;
-import static android.opengl.GLES20.GL_COLOR_BUFFER_BIT;
 
 /**
  * Created by Spoooon on 1/18/2015.

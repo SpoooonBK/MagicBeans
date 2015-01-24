@@ -1,5 +1,7 @@
 package buttley.nyc.esteban.magicbeans.model.boards.widgets.stages;
 
+import android.graphics.Canvas;
+
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.BoardWidget;
 import buttley.nyc.esteban.magicbeans.model.characters.Beans.Bean;
 import buttley.nyc.esteban.magicbeans.model.characters.GameCharacter;
@@ -11,10 +13,7 @@ public class BeanStageWidget extends BoardWidget implements CharacterStage{
 
     private Bean bean;
 
-    @Override
-    public void draw() {
 
-    }
 
     @Override
     public void enterStage(GameCharacter character) {
@@ -28,6 +27,11 @@ public class BeanStageWidget extends BoardWidget implements CharacterStage{
 
     @Override
     public void exitStageLeft(GameCharacter character) {
+
+    }
+
+    @Override
+    public void draw(Canvas canvas) {
 
     }
 }
