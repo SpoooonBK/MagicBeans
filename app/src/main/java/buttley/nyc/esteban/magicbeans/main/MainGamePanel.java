@@ -2,10 +2,12 @@ package buttley.nyc.esteban.magicbeans.main;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.BackgroundWidget;
 import buttley.nyc.esteban.magicbeans.model.characters.Buttley;
 
@@ -29,6 +31,24 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+
+
+        float xCoordinate = event.getX();
+        float yCoordinate = event.getY();
+
+        int action = event.getAction();
+            switch (action){
+                case MotionEvent.ACTION_DOWN: {
+                    buttley.playSound();
+                }
+            }
+
+
+            if(LoggerConfig.ON){
+                Log.v(LoggerConfig.LOG_TAG, "Touched: X: " + xCoordinate +"Y: " + yCoordinate);
+             }
+
+
         return super.onTouchEvent(event);
     }
 
