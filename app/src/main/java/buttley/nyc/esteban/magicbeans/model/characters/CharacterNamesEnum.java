@@ -5,7 +5,9 @@ package buttley.nyc.esteban.magicbeans.model.characters;
 /**
  * Created by Tara on 1/8/2015.
  */
-public enum NamesEnum {
+public enum CharacterNamesEnum {
+
+    BUTTLEY("buttley", CharacterType.BUTTLEY),
 
 
     //Beans//
@@ -34,7 +36,7 @@ public enum NamesEnum {
     private String xmlName;
     private CharacterType characterType;
 
-    private NamesEnum(String xmlName, CharacterType characterType){
+    private CharacterNamesEnum(String xmlName, CharacterType characterType){
         this.xmlName = xmlName;
         this.characterType = characterType;
     }

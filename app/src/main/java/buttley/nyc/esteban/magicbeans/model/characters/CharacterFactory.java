@@ -9,7 +9,7 @@ public class CharacterFactory {
 
 //TODO implement CharacterFactory
 
-    public static GameCharacter buildCharacter(NamesEnum name){
+    public static GameCharacter buildCharacter(CharacterNamesEnum name){
         GameCharacter character = null;
         switch (name){
             case BABY:{

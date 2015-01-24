@@ -1,5 +1,7 @@
 package buttley.nyc.esteban.magicbeans.model.characters;
 
+import android.graphics.Canvas;
+
 /**
  * Created by Spoooon on 1/18/2015.
  */
@@ -14,7 +16,7 @@ public class Patient extends GameCharacter {
 
 
     @Override
-    public void draw() {
+    public void draw(Canvas canvas) {
 
     }
 

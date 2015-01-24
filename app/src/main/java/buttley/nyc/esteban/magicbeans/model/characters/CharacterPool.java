@@ -47,7 +47,7 @@ public class CharacterPool {
     }
 
 
-    public GameCharacter getGameCharacter(NamesEnum characterName){
+    public GameCharacter getGameCharacter(CharacterNamesEnum characterName){
 
         if (characterName.getCharacterType() == CharacterType.BUTTLEY){
             return getButtley();
@@ -61,7 +61,7 @@ public class CharacterPool {
         return null;
     }
 
-    private GameCharacter findCharacter(List<GameCharacter> list, NamesEnum characterName) {
+    private GameCharacter findCharacter(List<GameCharacter> list, CharacterNamesEnum characterName) {
         Iterator<GameCharacter> iterator = list.iterator();
         while (iterator.hasNext()){
             if(iterator.next().mCharacterName == characterName){

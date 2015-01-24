@@ -1,5 +1,7 @@
 package buttley.nyc.esteban.magicbeans.model.characters.Beans;
 
+import android.graphics.Canvas;
+
 import buttley.nyc.esteban.magicbeans.model.characters.CharacterType;
 import buttley.nyc.esteban.magicbeans.model.characters.GameCharacter;
 
@@ -15,7 +17,7 @@ public abstract class Bean extends GameCharacter {
 
 
     @Override
-    public abstract void draw();
+    public abstract void draw(Canvas canvas);
 
     @Override
     public abstract void animate();

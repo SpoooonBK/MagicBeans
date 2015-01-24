@@ -25,7 +25,7 @@ public class CharacterLoader {
 
     public void loadCharacters(){
 
-        for(NamesEnum name: NamesEnum.values()) {
+        for(CharacterNamesEnum name: CharacterNamesEnum.values()) {
             sCharacterPool.addToPool(CharacterFactory.buildCharacter(name));
         }
     }

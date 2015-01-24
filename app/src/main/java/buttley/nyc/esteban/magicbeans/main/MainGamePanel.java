@@ -6,6 +6,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.BackgroundWidget;
+import buttley.nyc.esteban.magicbeans.model.characters.Buttley;
 
 /**
  * Created by Spoooon on 1/23/2015.
@@ -15,24 +16,25 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
     private MainThread thread;
     private Context context;
     private BackgroundWidget background;
+    private Buttley buttley;
 
 
     public MainGamePanel(Context context) {
         super(context);
         getHolder().addCallback(this);
         setFocusable(true);
-        Assets assets = new Assets(this.getResources().getAssets());
         ContextHolder contextHolder = new ContextHolder(context);
     }
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-
+        background = new BackgroundWidget();
+        buttley = new Buttley();
         thread = new MainThread(getHolder(),this);
         thread.setRunning(true);
         thread.start();
 
-        background = new BackgroundWidget();
+
 
     }
 
@@ -51,6 +53,7 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
 
     public void render(Canvas canvas) {
         background.draw(canvas);
+        buttley.draw(canvas);
 
 
     }

@@ -1,6 +1,7 @@
 package buttley.nyc.esteban.magicbeans.model.characters;
 
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.drawable.AnimationDrawable;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public abstract class GameCharacter {
     protected List<Sound> mSoundList;
     protected boolean mUnlocked;
     protected CharacterType mCharacterType;
-    protected NamesEnum mCharacterName;
+    protected CharacterNamesEnum mCharacterName;
     protected BeanographyPost beanographyPost;
 
     public GameCharacter() {
@@ -65,11 +66,11 @@ public abstract class GameCharacter {
         this.mCharacterType = mCharacterType;
     }
 
-    public NamesEnum getmCharacterName() {
+    public CharacterNamesEnum getmCharacterName() {
         return mCharacterName;
     }
 
-    public void setmCharacterName(NamesEnum mCharacterName) {
+    public void setmCharacterName(CharacterNamesEnum mCharacterName) {
         this.mCharacterName = mCharacterName;
     }
 
@@ -88,7 +89,7 @@ public abstract class GameCharacter {
 
 
     //Abstract method
-    public abstract void draw();
+    public abstract void draw(Canvas canvas);
     public abstract void animate();
     public abstract void playSound();
 
