@@ -2,10 +2,12 @@ package buttley.nyc.esteban.magicbeans.main;
 
 import android.app.Activity;
 import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -22,6 +24,8 @@ public class MainActivity extends Activity {
     private Assets assets = new Assets();
     private AudioManager audioManager;
     public SoundPool soundPool;
+    public static int sScreenWidth;
+    public static int sScreenHeight;
 
 
     @Override
@@ -31,6 +35,7 @@ public class MainActivity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(new buttley.nyc.esteban.magicbeans.main.MainGamePanel(this));
+        getScreenSize();
         loadAssets();
 
         if(LoggerConfig.ON) {
@@ -39,11 +44,10 @@ public class MainActivity extends Activity {
     }
 
 
-
+// loads all assets into Assets class
     public void loadAssets(){
         loadBitmaps();
         loadSounds();
-
 
         if(LoggerConfig.ON){
             Log.v(LoggerConfig.LOG_TAG, "assets loaded");
@@ -58,7 +62,6 @@ public class MainActivity extends Activity {
 
         audioManager = (AudioManager)getSystemService(AUDIO_SERVICE);
         soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
-
 
         soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
             @Override
@@ -76,7 +79,7 @@ public class MainActivity extends Activity {
         characterSoundMap.put(
                 CharacterNamesEnum.SILENT_BUT_DEADLY, soundPool.load(this, R.raw.sound4,1));
 
-
+//Todo find out if I need to reference audioManager in Assets
         Assets.loadSounds(audioManager, soundPool, characterSoundMap);
 
     }
@@ -93,6 +96,19 @@ public class MainActivity extends Activity {
                 BitmapFactory.decodeResource(getResources(),R.drawable.buttley_body_large));
         Assets.loadAsset(CharacterNamesEnum.BABY,
                 BitmapFactory.decodeResource(getResources(), R.drawable.baby_walking_sheet) );
+
+    }
+
+    public void getScreenSize(){
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        sScreenWidth = size.x;
+        sScreenHeight = size.y;
+        if(LoggerConfig.ON){
+            Log.v(LoggerConfig.LOG_TAG, "Screen size: Width: " + sScreenWidth
+                    + " Height: " +sScreenHeight );
+        }
 
     }
 

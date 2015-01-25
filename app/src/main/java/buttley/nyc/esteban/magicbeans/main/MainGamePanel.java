@@ -10,6 +10,7 @@ import android.view.SurfaceView;
 import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.BackgroundWidget;
 import buttley.nyc.esteban.magicbeans.model.characters.Buttley;
+import buttley.nyc.esteban.magicbeans.model.characters.CharacterNamesEnum;
 
 /**
  * Created by Spoooon on 1/23/2015.
@@ -29,6 +30,8 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
         ContextHolder contextHolder = new ContextHolder(context);
     }
 
+
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
@@ -42,7 +45,6 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
                     buttley.playSound();
                 }
             }
-
 
             if(LoggerConfig.ON){
                 Log.v(LoggerConfig.LOG_TAG, "Touched: X: " + xCoordinate +"Y: " + yCoordinate);
@@ -83,4 +85,5 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
 
 
     }
+
 }
