@@ -3,6 +3,7 @@ package buttley.nyc.esteban.magicbeans.main;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -19,6 +20,7 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
 
     private MainThread thread;
     private Context context;
+    private GestureDetector gestureDetector;
     private BackgroundWidget background;
     private Buttley buttley;
 
@@ -28,6 +30,39 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
         getHolder().addCallback(this);
         setFocusable(true);
         ContextHolder contextHolder = new ContextHolder(context);
+        setOnTouchListener(new OnSwipeTouchListener(context) {
+            @Override
+            public void onSwipeDown() {
+                if (LoggerConfig.ON) {
+                    Log.v(LoggerConfig.LOG_TAG, "swipe down");
+                    buttley.playSound();
+                }
+            }
+
+            @Override
+            public void onSwipeLeft() {
+                if (LoggerConfig.ON) {
+                    Log.v(LoggerConfig.LOG_TAG, "swipe left");
+                    buttley.playSound();
+                }
+            }
+
+            @Override
+            public void onSwipeUp() {
+                if (LoggerConfig.ON) {
+                    Log.v(LoggerConfig.LOG_TAG, "swipe up");
+                    buttley.playSound();
+                }
+            }
+
+            @Override
+            public void onSwipeRight() {
+                if (LoggerConfig.ON) {
+                    Log.v(LoggerConfig.LOG_TAG, "swipe right");
+                    buttley.playSound();
+                }
+            }
+        });
     }
 
 
@@ -43,13 +78,13 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
             switch (action){
                 case MotionEvent.ACTION_DOWN: {
                     buttley.playSound();
+                    break;
+                    }
                 }
-            }
 
             if(LoggerConfig.ON){
                 Log.v(LoggerConfig.LOG_TAG, "Touched: X: " + xCoordinate +"Y: " + yCoordinate);
              }
-
 
         return super.onTouchEvent(event);
     }

@@ -43,8 +43,22 @@ public class MainActivity extends Activity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
-// loads all assets into Assets class
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    // loads all assets into Assets class
     public void loadAssets(){
         loadBitmaps();
         loadSounds();
