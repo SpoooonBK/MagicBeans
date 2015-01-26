@@ -5,36 +5,38 @@ package buttley.nyc.esteban.magicbeans.main;
  */
 public class ScreenSizer {
 
-    public static int sWidth;
-    public static int sHeight;
+    public static int sScreenWidth;
+    public static int sScreenHeight;
 
 
 
     ScreenSizer(int width, int height){
         setsWidth(width);
-       setsHeight(height);
+       setsScreenHeight(height);
         setAspectRatio();
 
     }
 
 
     public static int getsWidth() {
-        return sWidth;
+        return sScreenWidth;
     }
 
     public static void setsWidth(int sWidth) {
-        ScreenSizer.sWidth = sWidth;
+        ScreenSizer.sScreenWidth = sWidth;
     }
 
-    public static int getsHeight() {
-        return sHeight;
+    public static int getsScreenHeight() {
+        return sScreenHeight;
     }
 
-    public static void setsHeight(int sHeight) {
-        ScreenSizer.sHeight = sHeight;
+    public static void setsScreenHeight(int sScreenHeight) {
+        ScreenSizer.sScreenHeight = sScreenHeight;
     }
 
     private void setAspectRatio() {
     }
+
+    public enum AspectRatio{}
 
 }

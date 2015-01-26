@@ -24,8 +24,7 @@ public class MainActivity extends Activity {
     private Assets assets = new Assets();
     private AudioManager audioManager;
     public SoundPool soundPool;
-    public static int sScreenWidth;
-    public static int sScreenHeight;
+
 
 
     @Override
@@ -117,11 +116,12 @@ public class MainActivity extends Activity {
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
-        sScreenWidth = size.x;
-        sScreenHeight = size.y;
+        ScreenSizer.setsWidth(size.x);
+        ScreenSizer.setsScreenHeight(size.y);
+
         if(LoggerConfig.ON){
-            Log.v(LoggerConfig.LOG_TAG, "Screen size: Width: " + sScreenWidth
-                    + " Height: " +sScreenHeight );
+            Log.v(LoggerConfig.LOG_TAG, "Screen size: Width: " + ScreenSizer.getsWidth()
+                    + " Height: " +ScreenSizer.getsScreenHeight() );
         }
 
     }
