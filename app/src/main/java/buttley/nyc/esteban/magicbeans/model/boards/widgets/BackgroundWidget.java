@@ -4,8 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Map;
 
 import buttley.nyc.esteban.magicbeans.R;
@@ -28,6 +26,15 @@ public class BackgroundWidget extends BoardWidget {
         loadBitmaps();
     }
 
+    @Override
+    public void setmBitmaps() {
+            mBitmaps = Assets.getsWidgetBitmaps().get(WidgetTypeEnum.BACKGROUND);
+    }
+
+    @Override
+    public void placeWidget() {
+
+    }
 
 
     public void loadBitmaps(){

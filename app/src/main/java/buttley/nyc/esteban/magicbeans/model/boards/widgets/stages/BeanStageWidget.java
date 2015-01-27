@@ -31,6 +31,11 @@ public class BeanStageWidget extends BoardWidget implements CharacterStage{
     }
 
     @Override
+    public void placeWidget() {
+
+    }
+
+    @Override
     public void draw(Canvas canvas) {
 
     }

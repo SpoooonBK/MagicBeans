@@ -11,13 +11,11 @@ import buttley.nyc.esteban.magicbeans.model.boards.widgets.BoardWidget;
  */
 public abstract class Board {
 
-    private BoardTypeEnum mBoardType;
-    private List<BoardWidget> mWidgetList;
+    protected BoardTypeEnum mBoardType;
+    protected List<BoardWidget> mWidgetList;
 
 
-    public Board(BoardTypeEnum boardType, List<BoardWidget> widgetList ){
-        mBoardType = boardType;
-        mWidgetList = widgetList;
+    public Board(){
     }
 
     public BoardTypeEnum getmBoardType() {

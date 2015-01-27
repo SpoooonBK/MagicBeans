@@ -1,6 +1,7 @@
 package buttley.nyc.esteban.magicbeans.main;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.media.AudioManager;
@@ -11,11 +12,14 @@ import android.view.Display;
 import android.view.Window;
 import android.view.WindowManager;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import buttley.nyc.esteban.magicbeans.R;
 import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
+import buttley.nyc.esteban.magicbeans.model.boards.widgets.BackgroundWidget;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.WidgetTypeEnum;
 import buttley.nyc.esteban.magicbeans.model.characters.CharacterNamesEnum;
 
@@ -59,9 +63,10 @@ public class MainActivity extends Activity {
 
     // loads all assets into Assets class
     public void loadAssets(){
-        loadBitmaps();
+        loadBackgrounds();
+        loadWidgetBitmaps();
+        loadCharacterBitmaps();
         loadSounds();
-
         if(LoggerConfig.ON){
             Log.v(LoggerConfig.LOG_TAG, "assets loaded");
         }
@@ -97,19 +102,27 @@ public class MainActivity extends Activity {
 
     }
 
-    public void loadBitmaps(){
+    public void loadWidgetBitmaps(){
+        List<Bitmap> titleList = new ArrayList<Bitmap>();
+        titleList.add(BitmapFactory.decodeResource(getResources(),R.drawable.title_text));
+        Assets.getsWidgetBitmaps().put(WidgetTypeEnum.TITLE, titleList);
 
-        //load widget bitmaps
-        Assets.loadAsset(WidgetTypeEnum.BACKGROUND,
-                BitmapFactory.decodeResource(getResources(),
-                        R.drawable.background_9_16_bathroom));
+    }
 
-        //load character bitmaps
+    public void loadBackgrounds(){
+
+        Bitmap bitmap;
+        bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.background_9_16_bathroom);
+        Assets.loadAsset(BackgroundWidget.BackgroundNames.BATHROOM,bitmap);
+    }
+
+    public void loadCharacterBitmaps(){
+
+
         Assets.loadAsset(CharacterNamesEnum.BUTTLEY,
                 BitmapFactory.decodeResource(getResources(),R.drawable.buttley_body_large));
         Assets.loadAsset(CharacterNamesEnum.BABY,
                 BitmapFactory.decodeResource(getResources(), R.drawable.baby_walking_sheet) );
-
     }
 
     public void getScreenSize(){

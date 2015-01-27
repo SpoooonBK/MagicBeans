@@ -2,6 +2,8 @@ package buttley.nyc.esteban.magicbeans.model.boards.widgets;
 
 import android.graphics.Canvas;
 
+import buttley.nyc.esteban.magicbeans.main.Assets;
+
 /**
  * Created by Spoooon on 1/18/2015.
  */
@@ -28,6 +30,16 @@ public class PoopMeterWidget extends BoardWidget {
         this.mCurrentPoopLevel = mCurrentPoopLevel;
     }
 
+
+    @Override
+    public void setmBitmaps() {
+        mBitmaps = Assets.getsWidgetBitmaps().get(WidgetTypeEnum.POOP_METER);
+    }
+
+    @Override
+    public void placeWidget() {
+
+    }
 
     @Override
     public void draw(Canvas canvas) {

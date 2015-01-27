@@ -1,32 +1,29 @@
 package buttley.nyc.esteban.magicbeans.model.characters;
 
+import buttley.nyc.esteban.magicbeans.controller.GameController;
+
 /**
  * This class creates the CharacterPool and fills it with GameCharacters.
  *
  *
  */
 public class CharacterLoader {
-    public static CharacterPool sCharacterPool;
-    private static CharacterLoader sCharacterLoader;
-
+    public CharacterPool mCharacterPool;
 
     public  CharacterLoader(){
-        sCharacterPool = new CharacterPool();
-        loadCharacters();
+        mCharacterPool = new CharacterPool();
+        loadAllCharacters();
     }
 
 
-    private static CharacterPool getCharacterPool() {
-        if(sCharacterLoader == null){
-            sCharacterLoader = new CharacterLoader();
-        }
-        return sCharacterPool;
+    public CharacterPool getCharacterPool() {
+        return mCharacterPool;
     }
 
-    public void loadCharacters(){
+    public void loadAllCharacters(){
 
         for(CharacterNamesEnum name: CharacterNamesEnum.values()) {
-            sCharacterPool.addToPool(CharacterFactory.buildCharacter(name));
+            mCharacterPool.addToPool(CharacterFactory.buildCharacter(name));
         }
     }
 

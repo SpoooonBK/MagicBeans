@@ -5,5 +5,5 @@ package buttley.nyc.esteban.magicbeans.model.boards;
  */
 public enum BoardTypeEnum {
 
-    TITLE, BEANOGRAPHY, SOUNDBOARD, GAME_LEVEL
+    TITLE, BEANOGRAPHY, SOUNDBOARD, GAME_LEVEL, TRANSITION
 }

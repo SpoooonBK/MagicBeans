@@ -8,7 +8,9 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import buttley.nyc.esteban.magicbeans.controller.GameController;
 import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
+import buttley.nyc.esteban.magicbeans.model.boards.Board;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.BackgroundWidget;
 import buttley.nyc.esteban.magicbeans.model.characters.Buttley;
 import buttley.nyc.esteban.magicbeans.model.characters.CharacterNamesEnum;
@@ -21,8 +23,10 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
     private MainThread thread;
     private Context context;
     private GestureDetector gestureDetector;
+    private GameController mGameController;
     private BackgroundWidget background;
     private Buttley buttley;
+    private Board mBoard;
 
 
     public MainGamePanel(Context context) {
@@ -43,7 +47,8 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
             public void onSwipeLeft() {
                 if (LoggerConfig.ON) {
                     Log.v(LoggerConfig.LOG_TAG, "swipe left");
-                    buttley.playSound();
+                    int babysound = Assets.getsCharacterSounds().get(CharacterNamesEnum.BABY);
+                    Assets.sSoundPool.play(babysound,1,1,1,0,1);
                 }
             }
 
@@ -63,6 +68,9 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
                 }
             }
         });
+
+        mGameController = new GameController();
+        mBoard = mGameController.runGame();
     }
 
 
@@ -115,8 +123,7 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
     }
 
     public void render(Canvas canvas) {
-        background.draw(canvas);
-        buttley.draw(canvas);
+        mBoard.draw(canvas);
 
 
     }

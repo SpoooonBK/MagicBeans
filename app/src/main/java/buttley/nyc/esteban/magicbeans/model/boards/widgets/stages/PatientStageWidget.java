@@ -30,6 +30,11 @@ public class PatientStageWidget extends BoardWidget implements CharacterStage {
     }
 
     @Override
+    public void placeWidget() {
+
+    }
+
+    @Override
     public void draw(Canvas canvas) {
 
     }
