@@ -19,7 +19,7 @@ public class Assets {
 
     public static Map<WidgetTypeEnum, List<Bitmap>> sWidgetBitmaps;
     public static Map<CharacterNamesEnum, Bitmap> sCharacterBitmaps;
-    public static Map<CharacterNamesEnum, Integer> sCharacterSounds;
+    public static Map<SoundNames, Integer> sSoundMap;
     public static Map<BackgroundWidget.BackgroundNames, Bitmap> sBackgroundBitmaps;
     public static AudioManager sAudioManager;
     public static SoundPool sSoundPool;
@@ -62,12 +62,20 @@ public class Assets {
         Assets.sCharacterBitmaps = sCharacterBitmaps;
     }
 
-    public static Map<CharacterNamesEnum, Integer> getsCharacterSounds() {
-        return sCharacterSounds;
+    public static Map<SoundNames, Integer> getsSoundMap() {
+        return sSoundMap;
     }
 
-    public static void setsCharacterSounds(Map<CharacterNamesEnum, Integer> sCharacterSounds) {
-        Assets.sCharacterSounds = sCharacterSounds;
+    public static void setsSoundMap(Map<SoundNames, Integer> sSoundMap) {
+        Assets.sSoundMap = sSoundMap;
+    }
+
+    public static Map<BackgroundWidget.BackgroundNames, Bitmap> getsBackgroundBitmaps() {
+        return sBackgroundBitmaps;
+    }
+
+    public static void setsBackgroundBitmaps(Map<BackgroundWidget.BackgroundNames, Bitmap> sBackgroundBitmaps) {
+        Assets.sBackgroundBitmaps = sBackgroundBitmaps;
     }
 
     public static AudioManager getsAudioManager() {
@@ -86,9 +94,9 @@ public class Assets {
         Assets.sSoundPool = sSoundPool;
     }
 
-    public static void loadSounds(AudioManager audioManager, SoundPool soundPool, Map<CharacterNamesEnum, Integer> characterSoundMap) {
+    public static void loadSounds(AudioManager audioManager, SoundPool soundPool, Map<SoundNames, Integer> soundMap) {
         setsAudioManager(audioManager);
         setsSoundPool(soundPool);
-        setsCharacterSounds(characterSoundMap);
+        setsSoundMap(soundMap);
     }
 }

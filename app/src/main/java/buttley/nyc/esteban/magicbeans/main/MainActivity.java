@@ -78,8 +78,8 @@ public class MainActivity extends Activity {
 
     public void loadSounds(){
 
-        Map<CharacterNamesEnum, Integer> characterSoundMap =
-                new HashMap<CharacterNamesEnum, Integer>();
+        Map<SoundNames, Integer> soundMap =
+                new HashMap<SoundNames, Integer>();
 
         audioManager = (AudioManager)getSystemService(AUDIO_SERVICE);
         soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
@@ -92,14 +92,14 @@ public class MainActivity extends Activity {
         });
 
 
-        characterSoundMap.put(CharacterNamesEnum.BUTTLEY,soundPool.load(this, R.raw.sound1, 1));
-//        characterSoundMap.put(CharacterNamesEnum.BABY, soundPool.load(this, R.raw.sound2, 1));
-//        characterSoundMap.put(CharacterNamesEnum.AIR_BISCUIT, soundPool.load(this, R.raw.sound3, 1));
-//        characterSoundMap.put(
-//                CharacterNamesEnum.SILENT_BUT_DEADLY, soundPool.load(this, R.raw.sound4,1));
+        soundMap.put(SoundNames.FART_1, soundPool.load(this, R.raw.sound1, 1));
+        soundMap.put(SoundNames.FART_2, soundPool.load(this, R.raw.sound2, 1));
+        soundMap.put(SoundNames.FART_3, soundPool.load(this, R.raw.sound3, 1));
+        soundMap.put(
+                SoundNames.FART_4, soundPool.load(this, R.raw.sound4, 1));
 
 //Todo find out if I need to reference audioManager in Assets
-        Assets.loadSounds(audioManager, soundPool, characterSoundMap);
+        Assets.loadSounds(audioManager, soundPool, soundMap);
         if (LoggerConfig.ON) {
             Log.v(LoggerConfig.LOG_TAG, "sounds loaded");
         }

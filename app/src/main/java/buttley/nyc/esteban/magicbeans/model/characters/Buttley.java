@@ -6,6 +6,7 @@ import android.util.Log;
 
 import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
 import buttley.nyc.esteban.magicbeans.main.Assets;
+import buttley.nyc.esteban.magicbeans.main.SoundNames;
 
 /**
  * Created by Spoooon on 1/18/2015.
@@ -18,7 +19,7 @@ public class Buttley extends GameCharacter {
 
     public Buttley(){
         setmSnapshot(Assets.sCharacterBitmaps.get(CharacterNamesEnum.BUTTLEY));
-        characterSound = Assets.getsCharacterSounds().get(CharacterNamesEnum.BUTTLEY);
+        characterSound = Assets.getsSoundMap().get(SoundNames.FART_1);
         setmCharacterType(CharacterType.BUTTLEY);
 
     }
