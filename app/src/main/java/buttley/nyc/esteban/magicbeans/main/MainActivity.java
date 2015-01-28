@@ -28,6 +28,7 @@ public class MainActivity extends Activity {
     private Assets assets = new Assets();
     private AudioManager audioManager;
     public SoundPool soundPool;
+    public static boolean assetsLoaded = false;
 
 
 
@@ -37,9 +38,11 @@ public class MainActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(new buttley.nyc.esteban.magicbeans.main.MainGamePanel(this));
         getScreenSize();
+        loadSounds();
         loadAssets();
+        setContentView(new buttley.nyc.esteban.magicbeans.main.MainGamePanel(this));
+
 
         if(LoggerConfig.ON) {
             Log.d(LoggerConfig.LOG_TAG, "View added");
@@ -61,7 +64,7 @@ public class MainActivity extends Activity {
         super.onStop();
     }
 
-    // loads all assets into Assets class
+//    loads all assets into Assets class
     public void loadAssets(){
         loadBackgrounds();
         loadWidgetBitmaps();
@@ -70,7 +73,7 @@ public class MainActivity extends Activity {
         if(LoggerConfig.ON){
             Log.v(LoggerConfig.LOG_TAG, "assets loaded");
         }
-
+        assetsLoaded = true;
     }
 
     public void loadSounds(){
@@ -84,22 +87,22 @@ public class MainActivity extends Activity {
         soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
             @Override
             public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
-                if (LoggerConfig.ON) {
-                    Log.v(LoggerConfig.LOG_TAG, "sounds loaded");
-                }
+
             }
         });
 
 
         characterSoundMap.put(CharacterNamesEnum.BUTTLEY,soundPool.load(this, R.raw.sound1, 1));
-        characterSoundMap.put(CharacterNamesEnum.BABY, soundPool.load(this, R.raw.sound2, 1));
-        characterSoundMap.put(CharacterNamesEnum.AIR_BISCUIT, soundPool.load(this, R.raw.sound3, 1));
-        characterSoundMap.put(
-                CharacterNamesEnum.SILENT_BUT_DEADLY, soundPool.load(this, R.raw.sound4,1));
+//        characterSoundMap.put(CharacterNamesEnum.BABY, soundPool.load(this, R.raw.sound2, 1));
+//        characterSoundMap.put(CharacterNamesEnum.AIR_BISCUIT, soundPool.load(this, R.raw.sound3, 1));
+//        characterSoundMap.put(
+//                CharacterNamesEnum.SILENT_BUT_DEADLY, soundPool.load(this, R.raw.sound4,1));
 
 //Todo find out if I need to reference audioManager in Assets
         Assets.loadSounds(audioManager, soundPool, characterSoundMap);
-
+        if (LoggerConfig.ON) {
+            Log.v(LoggerConfig.LOG_TAG, "sounds loaded");
+        }
     }
 
     public void loadWidgetBitmaps(){
@@ -121,8 +124,8 @@ public class MainActivity extends Activity {
 
         Assets.loadAsset(CharacterNamesEnum.BUTTLEY,
                 BitmapFactory.decodeResource(getResources(),R.drawable.buttley_body_large));
-        Assets.loadAsset(CharacterNamesEnum.BABY,
-                BitmapFactory.decodeResource(getResources(), R.drawable.baby_walking_sheet) );
+//        Assets.loadAsset(CharacterNamesEnum.BABY,
+//                BitmapFactory.decodeResource(getResources(), R.drawable.baby_walking_sheet) );
     }
 
     public void getScreenSize(){

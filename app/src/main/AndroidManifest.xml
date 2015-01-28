@@ -8,17 +8,13 @@
 -->
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/buttley_monocle"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name=".view.opengl.OpenGLES20Activity"
-            android:label="@string/app_name" >
 
-        </activity>
         <activity
             android:name=".main.MainActivity"
-            android:label="@string/title_activity_main"
+            android:label="@string/title_buttley"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,10 +1,12 @@
 package buttley.nyc.esteban.magicbeans.controller;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.SurfaceView;
 
 import buttley.nyc.esteban.magicbeans.gamelogic.GameLogic;
 import buttley.nyc.esteban.magicbeans.gamelogic.Sequencer;
+import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
 import buttley.nyc.esteban.magicbeans.main.MainGamePanel;
 import buttley.nyc.esteban.magicbeans.model.boards.Board;
 import buttley.nyc.esteban.magicbeans.model.boards.BoardLoader;
@@ -26,7 +28,7 @@ public class GameController {
     private CharacterLoader mCharacterLoader;
     private BoardLoader mBoardLoader;
     private CharacterPool mCharacterPool;
-    private Board board;
+
 
 
     public GameController (){
@@ -37,20 +39,20 @@ public class GameController {
 
     }
 
-    public Board runGame(){
+    public Board loadTitle(){
+           Board board = mBoardLoader.loadBoard(BoardTypeEnum.TITLE);
+           if (LoggerConfig.ON) {
+               Log.v(LoggerConfig.LOG_TAG, "Title Board loaded");
+           }
 
-        if(mRunning = false) {
-           board= mBoardLoader.loadBoard(BoardTypeEnum.TITLE);
-            mRunning = true;
-        }
         return board;
     }
 
-    public void changeBoard(BoardTypeEnum boardType){
-
-        board = mBoardLoader.loadBoard(boardType);
-
-    }
+//    public void changeBoard(BoardTypeEnum boardType){
+//
+//        board = mBoardLoader.loadBoard(boardType);
+//
+//    }
 
 
 }

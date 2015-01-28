@@ -14,7 +14,8 @@ public class TitleBoard extends Board {
         mWidgetList.add(new BackgroundWidget());
         mWidgetList.add(new TitleWidget());
         mWidgetList.add(new ButtleyStageWidget());
-
     }
+
+
 
 }

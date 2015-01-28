@@ -11,20 +11,38 @@ import buttley.nyc.esteban.magicbeans.main.Assets;
  * Created by Spoooon on 1/18/2015.
  */
 public class Buttley extends GameCharacter {
+    int mStartingXcoordinate;
+    int mStartingYcoordinate;
 
-    Bitmap buttleypic;
     int characterSound;
 
     public Buttley(){
         setmSnapshot(Assets.sCharacterBitmaps.get(CharacterNamesEnum.BUTTLEY));
         characterSound = Assets.getsCharacterSounds().get(CharacterNamesEnum.BUTTLEY);
+        setmCharacterType(CharacterType.BUTTLEY);
 
     }
 
+    public int getmStartingXcoordinate() {
+        return mStartingXcoordinate;
+    }
+
+    public void setmStartingXcoordinate(int mStartingXcoordinate) {
+        this.mStartingXcoordinate = mStartingXcoordinate;
+    }
+
+    public int getmStartingYcoordinate() {
+        return mStartingYcoordinate;
+    }
+
+    public void setmStartingYcoordinate(int mStartingYcoordinate) {
+        this.mStartingYcoordinate = mStartingYcoordinate;
+    }
 
     @Override
     public void draw(Canvas canvas) {
-        canvas.drawBitmap(getmSnapshot(),100,400,null);
+
+        canvas.drawBitmap(mSnapshot,mStartingXcoordinate,mStartingYcoordinate,null);
     }
 
     @Override

@@ -12,14 +12,12 @@ import java.util.List;
 public class CharacterPool {
 
 
-    private Buttley buttley;
+    private Buttley buttley = new Buttley();
     private List<GameCharacter> beanList;
     private List<GameCharacter> patientList;
 
 
     public CharacterPool(){
-
-        buttley = new Buttley();
         beanList = new ArrayList<GameCharacter>();
         patientList = new ArrayList<GameCharacter>();
 
@@ -39,6 +37,9 @@ public class CharacterPool {
 
 
     public void addToPool(GameCharacter gameCharacter){
+        if (gameCharacter.getmCharacterType() == CharacterType.BUTTLEY){
+            buttley = new Buttley();
+        }
         if (gameCharacter.getmCharacterType() == CharacterType.BEAN){
             beanList.add(gameCharacter);
         }

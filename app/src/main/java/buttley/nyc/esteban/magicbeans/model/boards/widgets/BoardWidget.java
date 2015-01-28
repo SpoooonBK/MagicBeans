@@ -27,7 +27,7 @@ public abstract class BoardWidget {
     }
 
 
-    public abstract void placeWidget();
+    public abstract void placeWidget(Bitmap bitmap);
 
     public abstract void draw(Canvas canvas);
 }

@@ -1,5 +1,9 @@
 package buttley.nyc.esteban.magicbeans.model.boards;
 
+import android.util.Log;
+
+import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
+
 /**
  * This class loads all Boards into the BoardPool.  It is also used to set the current board to be
  * displayed.
@@ -41,17 +45,15 @@ public class BoardLoader {
 
         for(BoardTypeEnum boardType: BoardTypeEnum.values()) {
             boardPool.addToPool(BoardFactory.buildBoard(boardType));
+            if(LoggerConfig.ON){
+                Log.v(LoggerConfig.LOG_TAG, "Loaded "+ boardType);
+            }
         }
     }
 
     public Board loadBoard(BoardTypeEnum boardType) {
 
-        if (currentBoard != null) {
-            setCurrentBoard(boardPool.getBoard(boardType));
-        } else {
-            setLastBoard();
-            setCurrentBoard(boardPool.getBoard(boardType));
-        }
+        setCurrentBoard(boardPool.getBoard(boardType));
 
         return getCurrentBoard();
     }

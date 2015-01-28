@@ -3,10 +3,12 @@ package buttley.nyc.esteban.magicbeans.model.boards.widgets;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.util.Log;
 
 import java.util.Map;
 
 import buttley.nyc.esteban.magicbeans.R;
+import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
 import buttley.nyc.esteban.magicbeans.main.Assets;
 import buttley.nyc.esteban.magicbeans.main.ContextHolder;
 
@@ -16,39 +18,25 @@ import buttley.nyc.esteban.magicbeans.main.ContextHolder;
  * Created by Spoooon on 1/22/2015.
  */
 public class BackgroundWidget extends BoardWidget {
-    private final String bathroomHiRes =
-            "/widgets/backgrounds/hi-res-9-16/background_bathroom.png";
 
     Map<BackgroundNames, Bitmap> mBackgroundMap;
     Bitmap background;
 
     public BackgroundWidget(){
-        loadBitmaps();
+        setmBitmaps();
+    }
+
+    public void setmBackgroundMap() {
+        if(LoggerConfig.ON){
+            Log.v(LoggerConfig.LOG_TAG, "Setting Backgrounds");
+        }
+            mBackgroundMap = Assets.sBackgroundBitmaps;
     }
 
     @Override
-    public void setmBitmaps() {
-            mBitmaps = Assets.getsWidgetBitmaps().get(WidgetTypeEnum.BACKGROUND);
-    }
-
-    @Override
-    public void placeWidget() {
-
-    }
-
-
-    public void loadBitmaps(){
-
-//        try {
-//            InputStream inputStream = Assets.sAssetManager.open(bathroomHiRes);
-//            background = BitmapFactory.decodeStream(inputStream);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-        background = BitmapFactory.decodeResource(ContextHolder.sContext.getResources(),R.drawable.background_9_16_bathroom);
-//        mBackgroundMap.put(BackgroundNames.BATHROOM, background);
-
+    public void placeWidget(Bitmap bitmap) {
+        mXCoordinate = 0;
+        mYCoordinate = 0;
     }
 
     @Override

@@ -11,9 +11,9 @@ import android.view.SurfaceView;
 import buttley.nyc.esteban.magicbeans.controller.GameController;
 import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
 import buttley.nyc.esteban.magicbeans.model.boards.Board;
+import buttley.nyc.esteban.magicbeans.model.boards.TitleBoard;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.BackgroundWidget;
 import buttley.nyc.esteban.magicbeans.model.characters.Buttley;
-import buttley.nyc.esteban.magicbeans.model.characters.CharacterNamesEnum;
 
 /**
  * Created by Spoooon on 1/23/2015.
@@ -26,7 +26,7 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
     private GameController mGameController;
     private BackgroundWidget background;
     private Buttley buttley;
-    private Board mBoard;
+    private TitleBoard titleBoard;
 
 
     public MainGamePanel(Context context) {
@@ -47,8 +47,8 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
             public void onSwipeLeft() {
                 if (LoggerConfig.ON) {
                     Log.v(LoggerConfig.LOG_TAG, "swipe left");
-                    int babysound = Assets.getsCharacterSounds().get(CharacterNamesEnum.BABY);
-                    Assets.sSoundPool.play(babysound,1,1,1,0,1);
+//                    int babysound = Assets.getsCharacterSounds().get(CharacterNamesEnum.BABY);
+//                    Assets.sSoundPool.play(babysound,1,1,1,0,1);
                 }
             }
 
@@ -69,8 +69,8 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
             }
         });
 
-        mGameController = new GameController();
-        mBoard = mGameController.runGame();
+
+
     }
 
 
@@ -99,8 +99,9 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        background = new BackgroundWidget();
-        buttley = new Buttley();
+        mGameController = new GameController();
+        titleBoard = (TitleBoard)mGameController.loadTitle();
+
         thread = new MainThread(getHolder(),this);
         thread.setRunning(true);
         thread.start();
@@ -123,9 +124,9 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
     }
 
     public void render(Canvas canvas) {
-        mBoard.draw(canvas);
-
-
+        titleBoard.draw(canvas);
     }
+
+
 
 }

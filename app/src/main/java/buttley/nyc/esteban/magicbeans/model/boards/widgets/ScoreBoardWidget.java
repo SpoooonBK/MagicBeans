@@ -1,5 +1,6 @@
 package buttley.nyc.esteban.magicbeans.model.boards.widgets;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
 import buttley.nyc.esteban.magicbeans.main.Assets;
@@ -16,9 +17,10 @@ public class ScoreBoardWidget extends BoardWidget {
     }
 
     @Override
-    public void placeWidget() {
+    public void placeWidget(Bitmap bitmap) {
 
     }
+
 
     @Override
     public void draw(Canvas canvas) {

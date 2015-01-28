@@ -12,9 +12,12 @@ public class CharacterFactory {
     public static GameCharacter buildCharacter(CharacterNamesEnum name){
         GameCharacter character = null;
         switch (name){
-            case BABY:{
-                character = new BabyBean();
-                break;
+//            case BABY:{
+//                character = new BabyBean();
+//                break;
+//            }
+            case BUTTLEY: {
+                character = new Buttley();
             }
 
         }

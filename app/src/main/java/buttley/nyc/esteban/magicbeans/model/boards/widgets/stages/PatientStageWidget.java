@@ -1,5 +1,6 @@
 package buttley.nyc.esteban.magicbeans.model.boards.widgets.stages;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.BoardWidget;
@@ -30,7 +31,7 @@ public class PatientStageWidget extends BoardWidget implements CharacterStage {
     }
 
     @Override
-    public void placeWidget() {
+    public void placeWidget(Bitmap bitmap) {
 
     }
 
