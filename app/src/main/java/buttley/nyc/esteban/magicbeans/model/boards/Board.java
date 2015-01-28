@@ -39,9 +39,6 @@ public abstract class Board {
     }
 
     public void draw(Canvas canvas){
-        if(LoggerConfig.ON){
-            Log.v(LoggerConfig.LOG_TAG, "Drawing " + mBoardType);
-        }
         for(BoardWidget widget: mWidgetList){
             widget.draw(canvas);
         }

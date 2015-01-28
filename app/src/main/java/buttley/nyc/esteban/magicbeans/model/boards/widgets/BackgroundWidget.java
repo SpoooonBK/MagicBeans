@@ -23,7 +23,7 @@ public class BackgroundWidget extends BoardWidget {
     Bitmap background;
 
     public BackgroundWidget(){
-        setmBitmaps();
+        setmBackgroundMap();
     }
 
     public void setmBackgroundMap() {
@@ -41,7 +41,7 @@ public class BackgroundWidget extends BoardWidget {
 
     @Override
     public void draw(Canvas canvas) {
-        canvas.drawBitmap(background,0,0,null);
+        canvas.drawBitmap(mBackgroundMap.get(BackgroundNames.BATHROOM),0,0,null);
     }
 
     public enum BackgroundNames {

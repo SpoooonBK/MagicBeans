@@ -100,7 +100,7 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         mGameController = new GameController();
-        titleBoard = (TitleBoard)mGameController.loadTitle();
+        titleBoard = new TitleBoard();
 
         thread = new MainThread(getHolder(),this);
         thread.setRunning(true);
