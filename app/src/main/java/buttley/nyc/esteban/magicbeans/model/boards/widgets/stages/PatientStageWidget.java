@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.BoardWidget;
 import buttley.nyc.esteban.magicbeans.model.characters.GameCharacter;
-import buttley.nyc.esteban.magicbeans.model.characters.Patient;
+import buttley.nyc.esteban.magicbeans.model.characters.patients.Patient;
 
 /**
  * Created by Spoooon on 1/19/2015.

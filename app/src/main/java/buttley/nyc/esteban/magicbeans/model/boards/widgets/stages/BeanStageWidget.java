@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.BoardWidget;
-import buttley.nyc.esteban.magicbeans.model.characters.Beans.Bean;
+import buttley.nyc.esteban.magicbeans.model.characters.beans.Bean;
 import buttley.nyc.esteban.magicbeans.model.characters.GameCharacter;
 
 /**

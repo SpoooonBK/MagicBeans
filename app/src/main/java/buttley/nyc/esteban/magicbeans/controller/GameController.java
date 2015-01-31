@@ -13,7 +13,6 @@ import buttley.nyc.esteban.magicbeans.model.boards.BoardPool;
 import buttley.nyc.esteban.magicbeans.model.boards.BoardTypeEnum;
 import buttley.nyc.esteban.magicbeans.model.boards.soundboard.SoundPool;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.WidgetPool;
-import buttley.nyc.esteban.magicbeans.model.characters.CharacterLoader;
 import buttley.nyc.esteban.magicbeans.model.characters.CharacterPool;
 
 /**
@@ -25,7 +24,6 @@ public class GameController {
     private SoundPool soundPool;
     private Sequencer sequencer;
     private GameLogic mGameLogic;
-    private CharacterLoader mCharacterLoader;
     private CharacterPool mCharacterPool;
     private WidgetPool mWidgetPool;
     private BoardPool mBoardPool;
@@ -33,8 +31,7 @@ public class GameController {
 
 
     public GameController (){
-       mCharacterLoader = new CharacterLoader();
-       mCharacterPool = mCharacterLoader.getCharacterPool();
+       mCharacterPool = new CharacterPool();
        mWidgetPool = new WidgetPool();
        mBoardPool =  new BoardPool(mWidgetPool);
        mGameLogic = new GameLogic();
