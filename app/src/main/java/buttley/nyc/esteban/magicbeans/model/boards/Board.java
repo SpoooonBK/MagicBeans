@@ -1,13 +1,14 @@
 package buttley.nyc.esteban.magicbeans.model.boards;
 
 import android.graphics.Canvas;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.BoardWidget;
+import buttley.nyc.esteban.magicbeans.model.boards.widgets.WidgetPool;
+import buttley.nyc.esteban.magicbeans.model.boards.widgets.WidgetTypeEnum;
 
 /**
  * Created by Spoooon on 1/18/2015.
@@ -15,11 +16,8 @@ import buttley.nyc.esteban.magicbeans.model.boards.widgets.BoardWidget;
 public abstract class Board {
 
     protected BoardTypeEnum mBoardType;
-    protected List<BoardWidget> mWidgetList = new ArrayList<BoardWidget>() {
-    };
 
-
-    public Board(){
+    public Board(WidgetPool widgetPool){
     }
 
     public BoardTypeEnum getmBoardType() {
@@ -30,19 +28,8 @@ public abstract class Board {
         this.mBoardType = mBoardType;
     }
 
-    public List<BoardWidget> getmWidgetList() {
-        return mWidgetList;
-    }
+    public abstract void draw(Canvas canvas);
 
-    public void setmWidgetList(List<BoardWidget> mWidgetList) {
-        this.mWidgetList = mWidgetList;
-    }
-
-    public void draw(Canvas canvas){
-        for(BoardWidget widget: mWidgetList){
-            widget.draw(canvas);
-        }
-    }
 }
 
 

@@ -1,7 +1,10 @@
 package buttley.nyc.esteban.magicbeans.model.boards;
 
+import android.graphics.Canvas;
+
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.BackgroundWidget;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.TitleWidget;
+import buttley.nyc.esteban.magicbeans.model.boards.widgets.WidgetPool;
 import buttley.nyc.esteban.magicbeans.model.boards.widgets.stages.ButtleyStageWidget;
 
 /**
@@ -9,13 +12,12 @@ import buttley.nyc.esteban.magicbeans.model.boards.widgets.stages.ButtleyStageWi
  */
 public class TitleBoard extends Board {
 
-    public TitleBoard (){
-        mBoardType = BoardTypeEnum.TITLE;
-        mWidgetList.add(new BackgroundWidget());
-        mWidgetList.add(new TitleWidget());
-        mWidgetList.add(new ButtleyStageWidget());
+    public TitleBoard(WidgetPool widgetPool) {
+        super(widgetPool);
     }
 
+    @Override
+    public void draw(Canvas canvas) {
 
-
+    }
 }

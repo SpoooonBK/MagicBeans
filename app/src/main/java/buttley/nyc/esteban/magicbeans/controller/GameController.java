@@ -9,10 +9,10 @@ import buttley.nyc.esteban.magicbeans.gamelogic.Sequencer;
 import buttley.nyc.esteban.magicbeans.logging.LoggerConfig;
 import buttley.nyc.esteban.magicbeans.main.MainGamePanel;
 import buttley.nyc.esteban.magicbeans.model.boards.Board;
-import buttley.nyc.esteban.magicbeans.model.boards.BoardLoader;
 import buttley.nyc.esteban.magicbeans.model.boards.BoardPool;
 import buttley.nyc.esteban.magicbeans.model.boards.BoardTypeEnum;
 import buttley.nyc.esteban.magicbeans.model.boards.soundboard.SoundPool;
+import buttley.nyc.esteban.magicbeans.model.boards.widgets.WidgetPool;
 import buttley.nyc.esteban.magicbeans.model.characters.CharacterLoader;
 import buttley.nyc.esteban.magicbeans.model.characters.CharacterPool;
 
@@ -26,33 +26,22 @@ public class GameController {
     private Sequencer sequencer;
     private GameLogic mGameLogic;
     private CharacterLoader mCharacterLoader;
-    private BoardLoader mBoardLoader;
     private CharacterPool mCharacterPool;
+    private WidgetPool mWidgetPool;
+    private BoardPool mBoardPool;
 
 
 
     public GameController (){
        mCharacterLoader = new CharacterLoader();
        mCharacterPool = mCharacterLoader.getCharacterPool();
-       mBoardLoader = new BoardLoader();
+       mWidgetPool = new WidgetPool();
+       mBoardPool =  new BoardPool(mWidgetPool);
        mGameLogic = new GameLogic();
 
     }
 
-    public Board loadTitle(){
-           Board board = mBoardLoader.loadBoard(BoardTypeEnum.TITLE);
-           if (LoggerConfig.ON) {
-               Log.v(LoggerConfig.LOG_TAG, "Title Board loaded");
-           }
-
-        return board;
+    public Board loadBoard(BoardTypeEnum boardType) {
+        return mBoardPool.getBoard(boardType);
     }
-
-//    public void changeBoard(BoardTypeEnum boardType){
-//
-//        board = mBoardLoader.loadBoard(boardType);
-//
-//    }
-
-
 }
