@@ -24,9 +24,7 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
     private Context context;
     private GestureDetector gestureDetector;
     private GameController mGameController;
-    private BackgroundWidget background;
-    private Buttley buttley;
-    private TitleBoard titleBoard;
+    private Board mCurrentBoard;
 
 
     public MainGamePanel(Context context) {
@@ -73,9 +71,6 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
                 Assets.sSoundPool.play(fart4,1,1,1,0,1);
             }
         });
-
-
-
     }
 
 
@@ -90,7 +85,6 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
         int action = event.getAction();
             switch (action){
                 case MotionEvent.ACTION_DOWN: {
-                    buttley.playSound();
                     break;
                     }
                 }
@@ -102,10 +96,13 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
         return super.onTouchEvent(event);
     }
 
+    public void setCurrentBoard(Board board){
+
+    }
+
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        mGameController = new GameController();
-        titleBoard = new TitleBoard();
+        mGameController = new GameController(this);
 
         thread = new MainThread(getHolder(),this);
         thread.setRunning(true);
@@ -129,7 +126,7 @@ public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback
     }
 
     public void render(Canvas canvas) {
-        titleBoard.draw(canvas);
+        mCurrentBoard.draw(canvas);
     }
 
 

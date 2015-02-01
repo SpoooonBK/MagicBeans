@@ -20,25 +20,28 @@ import buttley.nyc.esteban.magicbeans.model.characters.CharacterPool;
  */
 public class GameController {
 
-    private Boolean mRunning = false;
-    private SoundPool soundPool;
-    private Sequencer sequencer;
+    private Boolean mGameRunning = false;
+    private SoundPool mSoundPool;
+    private Sequencer mSequencer;
     private GameLogic mGameLogic;
     private CharacterPool mCharacterPool;
     private WidgetPool mWidgetPool;
     private BoardPool mBoardPool;
+    private MainGamePanel mMainGamePanel;
 
 
 
-    public GameController (){
+    public GameController (MainGamePanel mainGamePanel){
+       mMainGamePanel = mainGamePanel;
        mCharacterPool = new CharacterPool();
        mWidgetPool = new WidgetPool();
        mBoardPool =  new BoardPool(mWidgetPool);
        mGameLogic = new GameLogic();
-
+       mainGamePanel.setCurrentBoard(loadBoard(BoardTypeEnum.TITLE));
     }
 
     public Board loadBoard(BoardTypeEnum boardType) {
         return mBoardPool.getBoard(boardType);
     }
+
 }
