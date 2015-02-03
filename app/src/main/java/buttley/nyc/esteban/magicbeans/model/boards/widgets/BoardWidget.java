@@ -17,6 +17,7 @@ public abstract class BoardWidget {
     public BoardWidget() {
         setmBitmaps();
     }
+    //TODO fix bitmaps
 
     public List<Bitmap> getmBitmaps() {
         return mBitmaps;
