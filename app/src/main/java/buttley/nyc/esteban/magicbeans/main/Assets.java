@@ -86,7 +86,7 @@ public class Assets {
         Assets.sAudioManager = sAudioManager;
     }
 
-    public static SoundPool getsSoundPool() {
+    public static SoundPool     getsSoundPool() {
         return sSoundPool;
     }
 
