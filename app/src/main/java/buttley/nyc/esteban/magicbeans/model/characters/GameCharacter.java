@@ -16,6 +16,8 @@ import buttley.nyc.esteban.magicbeans.model.sounds.Sound;
 public abstract class GameCharacter {
 
     protected Bitmap mSnapshot;
+    protected int mSnapshotHeight;
+    protected int mSnapshotWidth;
     protected List<AnimationDrawable> mAnimationsList;
     protected List<Sound> mSoundList;
     protected boolean mUnlocked;
@@ -32,6 +34,8 @@ public abstract class GameCharacter {
 
     public void setmSnapshot(Bitmap mSnapshot) {
         this.mSnapshot = mSnapshot;
+        mSnapshotHeight = mSnapshot.getHeight();
+        mSnapshotWidth = mSnapshot.getWidth();
     }
 
     public List<AnimationDrawable> getmAnimationsList() {

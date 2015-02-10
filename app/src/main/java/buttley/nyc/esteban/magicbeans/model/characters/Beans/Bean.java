@@ -1,4 +1,4 @@
-package buttley.nyc.esteban.magicbeans.model.characters.Beans;
+package buttley.nyc.esteban.magicbeans.model.characters.beans;
 
 import android.graphics.Canvas;
 

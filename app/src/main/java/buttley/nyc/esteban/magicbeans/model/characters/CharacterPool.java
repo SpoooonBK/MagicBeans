@@ -3,18 +3,7 @@ package buttley.nyc.esteban.magicbeans.model.characters;
 import java.util.EnumMap;
 import java.util.Map;
 
-import buttley.nyc.esteban.magicbeans.model.characters.beans.AirBiscuit;
-import buttley.nyc.esteban.magicbeans.model.characters.beans.BabyBean;
-import buttley.nyc.esteban.magicbeans.model.characters.beans.Baked_Jake;
-import buttley.nyc.esteban.magicbeans.model.characters.beans.Bubba;
-import buttley.nyc.esteban.magicbeans.model.characters.beans.Dusty;
-import buttley.nyc.esteban.magicbeans.model.characters.beans.DutchOven;
-import buttley.nyc.esteban.magicbeans.model.characters.beans.Edemama;
-import buttley.nyc.esteban.magicbeans.model.characters.beans.HolyFrijole;
-import buttley.nyc.esteban.magicbeans.model.characters.beans.Joe;
-import buttley.nyc.esteban.magicbeans.model.characters.beans.Sharty;
-import buttley.nyc.esteban.magicbeans.model.characters.beans.SilentButDeadly;
-import buttley.nyc.esteban.magicbeans.model.characters.beans.Twerk;
+import buttley.nyc.esteban.magicbeans.model.characters.beans.*;
 
 
 /**
@@ -48,7 +37,7 @@ public class CharacterPool {
         mCharacterMap.put(CharacterNamesEnum.BUTTLEY, new Buttley());
         mCharacterMap.put(CharacterNamesEnum.BABY, new BabyBean());
         mCharacterMap.put(CharacterNamesEnum.AIR_BISCUIT, new AirBiscuit());
-        mCharacterMap.put(CharacterNamesEnum.BAKED_JAKE, new Baked_Jake());
+        mCharacterMap.put(CharacterNamesEnum.BAKED_JAKE, new BakedJake());
         mCharacterMap.put(CharacterNamesEnum.BUBBA, new Bubba());
         mCharacterMap.put(CharacterNamesEnum.DUSTY, new Dusty());
         mCharacterMap.put(CharacterNamesEnum.EDEMAMA, new Edemama());

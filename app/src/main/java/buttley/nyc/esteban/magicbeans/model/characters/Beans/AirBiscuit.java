@@ -3,17 +3,9 @@ package buttley.nyc.esteban.magicbeans.model.characters.beans;
 import android.graphics.Canvas;
 
 /**
- * Created by Spoooon on 1/20/2015.
+ * Created by Spoooon on 2/10/2015.
  */
-public class BabyBean extends Bean{
-
-
-    public BabyBean(){
-
-    }
-
-
-
+public class AirBiscuit extends Bean {
     @Override
     public void draw(Canvas canvas) {
 
@@ -28,6 +20,4 @@ public class BabyBean extends Bean{
     public void playSound() {
 
     }
-
-
 }

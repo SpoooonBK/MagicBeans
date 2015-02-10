@@ -4,6 +4,7 @@ import java.util.List;
 
 import buttley.nyc.esteban.magicbeans.model.characters.beans.Bean;
 
+
 /**
  * Created by Spoooon on 1/19/2015.
  */

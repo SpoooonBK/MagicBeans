@@ -32,6 +32,7 @@ public class ScreenSizer {
 
     public static void setsScreenHeight(int sScreenHeight) {
         ScreenSizer.sScreenHeight = sScreenHeight;
+
     }
 
     private void setAspectRatio() {

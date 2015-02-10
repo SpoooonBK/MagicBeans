@@ -17,6 +17,7 @@ public class Buttley extends GameCharacter {
 
     int characterSound;
 
+
     public Buttley(){
         setmSnapshot(Assets.sCharacterBitmaps.get(CharacterNamesEnum.BUTTLEY));
         characterSound = Assets.getsSoundMap().get(SoundNames.FART_1);
